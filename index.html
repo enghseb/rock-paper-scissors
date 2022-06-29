@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
+    <script> 
     function computerPlay(){
         randomNumber =  Math.random() * 3;
         //Used to get a number without decimals
@@ -40,56 +40,40 @@
 
     function playRound(computerPlay, userPlay){
         if (userPlay == "rock" && computerPlay == "scissors" || userPlay == "scissors" && computerPlay == "paper" || userPlay == "paper" && computerPlay == "rock") {
-            result = `You drew ${userPlay} and the computer drew ${computerPlay}. You won`
+            result = 0
         }   else if (userPlay == "rock" && computerPlay == "rock" || userPlay == "scissors" && computerPlay == "scissors" || userPlay == "paper" && computerPlay == "paper") {
-            result = `You drew ${userPlay} and the computer drew ${computerPlay}. It was a draw`
+            result = 1
         }   else {
-            result = `You drew ${userPlay} and the computer drew ${computerPlay}. You lost`
+            result = 2
         }
-
+        console.log(`You go for a ${userPlay} and the computer opts for ${computerPlay}`)
         return result;
 
     }
 
     function game(){
-        for (let rounds = 0; rounds < 2; rounds++) {
-            roundResult = playRound(computerPlay(), userPlay())
-            /*
-            if return is 0, add point to player and print what each one drew and what the score is
-            if return is 1, add point to computer and print what each one drew and what the score is
-            
+        let playerScore = 0
+        let computerScore = 0
 
-             *\
-            
-            console.log(roundResult);
+        for (let rounds = 0; rounds < 5; rounds++) {
+            roundResult = playRound(computerPlay(), userPlay())
+            if (roundResult == 0){
+                playerScore++;
+                console.log("You won and scored a point.")
+            } else if (roundResult == 1){
+                console.log("You drew.")
+            } else {
+                computerScore++
+                console.log("The computer won and scored a point.")
+            }
+
+            console.log(`Your score is ${playerScore} and the computers is ${computerScore}`)
             }
         }
 
       
     game()
-/*     computerPlay = computerPlay()
-    userPlay = userPlay()
-    console.log(computerPlay)
-    console.log(userPlay)
-    console.log(playRound(computerPlay, userPlay)) */
-
-            //Om spelare har sten och dator har sax
-        //Om spelare har sax och dator har påse
-        //Om spelare har påse och dator har sten
-        //Du vann
-
-        //Annars om
-        //Om spelare har sten och dator har sten, oavgjort
-        //Om spelare har sax och dator har sax, oavgjort
-        //Om spelare har påse och dator har påse, oavgjort
-        //Ni spelade oavgjort
-
-        //Annars
-        //Om spelare har sten och dator har påse, dator vinner
-        //Om spelare har sax och dator har sten, dator vinner
-        //Om spelare har påse och dator har sax, dator vinner
-        //Datorn vann
-
+    
     </script>
 </body>
 </html>
