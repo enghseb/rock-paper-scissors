@@ -8,9 +8,30 @@
 </head>
 <body>
     <script>
+    function computerPlay(){
+        randomNumber =  Math.random() * 3;
+        //Used to get a number without decimals
+        randomNumberFloored = Math.floor(randomNumber)
+        computerSelection = ""
+        if (randomNumberFloored == 0) {
+            computerSelection = "Rock";
+        }   else if (randomNumberFloored == 1) {
+            computerSelection = "Scissor";
+        }   else {
+            computerSelection = "Paper";
+        }
 
+       return computerSelection;
+        
+    }
 
+    function userPlay(){
+        let userInput = promt("Rock, papper or scissor?");
+        return userInput;
+    }
 
+    console.log(computerPlay())
+    userPlay()
     </script>
 </body>
 </html>
