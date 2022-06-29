@@ -16,7 +16,7 @@
         if (randomNumberFloored == 0) {
             computerSelection = "Rock";
         }   else if (randomNumberFloored == 1) {
-            computerSelection = "Scissor";
+            computerSelection = "Scissors";
         }   else {
             computerSelection = "Paper";
         }
@@ -26,18 +26,42 @@
     }
 
     function userPlay(){
-        let userInput = prompt("Rock, papper or scissor?");
+        let userInput = prompt("Rock, papper or scissors?");
         return userInput;
     }
 
 
     function playRound(computerPlay, userPlay){
+        if (userPlay == "Rock" && computerPlay == "Scissors") {
+            result = "Vinst"
+        } else {
+            result = "Förlust"
+        }
 
+        return result;
+        //Om spelare har sten och dator har sax
+        //Om spelare har sax och dator har påse
+        //Om spelare har påse och dator har sten
+        //Du vann
+
+        //Annars om
+        //Om spelare har sten och dator har sten, oavgjort
+        //Om spelare har sax och dator har sax, oavgjort
+        //Om spelare har påse och dator har påse, oavgjort
+        //Ni spelade oavgjort
+
+        //Annars
+        //Om spelare har sten och dator har påse, dator vinner
+        //Om spelare har sax och dator har sten, dator vinner
+        //Om spelare har påse och dator har sax, dator vinner
+        //Datorn vann
     }
 
-    console.log(computerPlay())
-    console.log(userPlay())
-    playRound()
+    computerPlay = computerPlay()
+    userPlay = userPlay()
+    console.log(playRound(computerPlay, userPlay))
+    console.log(computerPlay)
+    console.log(userPlay)
 
 
     </script>
