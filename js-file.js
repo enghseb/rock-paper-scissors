@@ -18,11 +18,6 @@ function computerPlay(){
 function userPlay(){
     let userInput = prompt("Rock, Paper or Scissors?");
     let userInputLowerCase = userInput.toLowerCase();
-    //If input is not rock or papper or scissors, request new input
-/*         if (userInputLowerCase != "rock" || "paper" || "scissors"){
-        let userInput = prompt("Rock, Papper or Scissors?");
-    } */
-    
 
     return userInputLowerCase;
 }
@@ -45,7 +40,7 @@ function game(){
     let playerScore = 0
     let computerScore = 0
 
-    for (let rounds = 0; rounds < 5; rounds++) {
+    for (let rounds = 0; rounds < 1; rounds++) {
         roundResult = playRound(computerPlay(), userPlay())
         if (roundResult == 0){
             playerScore++;
@@ -61,5 +56,13 @@ function game(){
         }
     }
 
-  
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+        playerSelection = button.id
+        console.log(playerSelection);
+    });
+});
+
 game()
