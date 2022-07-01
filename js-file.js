@@ -1,3 +1,14 @@
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+
+button.addEventListener('click', () => {
+    playerSelection = button.id
+    game()
+});
+});
+
+const result = document.querySelector('#result');
+
 function computerPlay(){
     randomNumber =  Math.random() * 3;
     //Used to get a number without decimals
@@ -16,10 +27,8 @@ function computerPlay(){
 }
 
 function userPlay(){
-    let userInput = prompt("Rock, Paper or Scissors?");
-    let userInputLowerCase = userInput.toLowerCase();
-
-    return userInputLowerCase;
+    let userInput = playerSelection;
+    return userInput;
 }
 
 
@@ -56,13 +65,3 @@ function game(){
         }
     }
 
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-
-    button.addEventListener('click', () => {
-        playerSelection = button.id
-        console.log(playerSelection);
-    });
-});
-
-game()
