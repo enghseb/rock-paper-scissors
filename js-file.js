@@ -7,7 +7,7 @@ button.addEventListener('click', () => {
 });
 });
 
-const result = document.querySelector('#result');
+const resultOutput = document.querySelector('#result')
 
 function computerPlay(){
     randomNumber =  Math.random() * 3;
@@ -53,6 +53,12 @@ function game(){
         roundResult = playRound(computerPlay(), userPlay())
         if (roundResult == 0){
             playerScore++;
+
+            const playerWonText = document.createElement('p');
+            playerWonText.classList.add('playerWonText')
+            playerWonText.textContent = "You won and scored a point.";
+            resultOutput.appendChild(playerWonText);
+
             console.log("You won and scored a point.")
         } else if (roundResult == 1){
             console.log("You drew.")
