@@ -40,7 +40,12 @@ function playRound(computerPlay, userPlay){
     }   else {
         result = 2
     }
-    console.log(`You go for a ${userPlay} and the computer opts for ${computerPlay}`)
+    const BothChoicesText = document.createElement('p');
+    BothChoicesText.classList.add('BothChoicesText')
+    BothChoicesText.textContent = `You go for a ${userPlay} and the computer opts for ${computerPlay}`;
+    resultOutput.appendChild(BothChoicesText);
+
+    /* console.log(`You go for a ${userPlay} and the computer opts for ${computerPlay}`) */
     return result;
 
 }
@@ -48,8 +53,8 @@ function playRound(computerPlay, userPlay){
 function game(){
     let playerScore = 0
     let computerScore = 0
-
-    for (let rounds = 0; rounds < 1; rounds++) {
+  
+    for (let rounds = 0; rounds < 5; rounds++) {
         roundResult = playRound(computerPlay(), userPlay())
         if (roundResult == 0){
             playerScore++;
@@ -59,13 +64,28 @@ function game(){
             playerWonText.textContent = "You won and scored a point.";
             resultOutput.appendChild(playerWonText);
 
-            console.log("You won and scored a point.")
+            /* console.log("You won and scored a point.") */
         } else if (roundResult == 1){
-            console.log("You drew.")
+            const playerDrewText = document.createElement('p');
+            playerDrewText.classList.add('playerDrewText')
+            playerDrewText.textContent = "You drew.";
+            resultOutput.appendChild(playerDrewText);
+
+            /* console.log("You drew.") */
         } else {
             computerScore++
-            console.log("The computer won and scored a point.")
+            const playerLostText = document.createElement('p');
+            playerLostText.classList.add('playerLostText')
+            playerLostText.textContent = "You lost.";
+            resultOutput.appendChild(playerLostText);
+
+            /* console.log("The computer won and scored a point.") */
         }
+
+        const scoreText = document.createElement('p');
+        scoreText.classList.add('scoreText')
+        scoreText.textContent = `Your score is ${playerScore} and the computers is ${computerScore}.`;
+        resultOutput.appendChild(scoreText);
 
         console.log(`Your score is ${playerScore} and the computers is ${computerScore}`)
         }
