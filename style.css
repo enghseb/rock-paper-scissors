@@ -42,6 +42,14 @@ body {
     background: linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 60%, rgba(255,255,0,1) 100%);
 }
 
+#resultText {
+  font-family: Badaboom, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display:flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 20px;
+}
+
 .scoreboard.score {
     gap: 150px;
     color: red;
@@ -172,7 +180,7 @@ h1 {
   #playerSelection {
     display: flex;
     justify-content: center;
-    margin: 50px;
+    margin: 10px;
   }
 
   button {

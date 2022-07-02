@@ -2,6 +2,7 @@
 playerScore = 0
 computerScore = 0
 rounds = 0
+winner = 0
 
 function delay(time) {
     /* Makes it possible to delay time by xxxx ms */
@@ -30,44 +31,16 @@ function playRound(computerPlay, playerSelection){
     /* Plays out the winner of the round and returns the score*/
     rounds++
     if (playerSelection == "rock" && computerPlay == "scissors" || playerSelection == "scissors" && computerPlay == "paper" || playerSelection == "paper" && computerPlay == "rock") {
-        console.log("Spelare vann")
         playerScore++
-        /* return 0 */
+        winner = 0
+        console.log(winner)
     }   else if (playerSelection == "rock" && computerPlay == "rock" || playerSelection == "scissors" && computerPlay == "scissors" || playerSelection == "paper" && computerPlay == "paper") {
-        console.log("Oavgjort")
-        /* return 1 */
+        winner = 1
+        console.log(winner)
     }   else {
         computerScore++
-        console.log("Dator vann")
-        /* return 2 */
-    }
-}
-
-function score(result){
-    /*Checks the score, prints correct data for score
-    and updates variables so the score is correct */
-    const resultOutput = document.querySelector('#result')
-
-    if(result == 0) {
-        computerScore++
-        const playerWonText = document.createElement('p');
-                playerWonText.classList.add('playerWonText')
-                playerWonText.textContent = `You won, the computer had a ${computerSelection}`;
-                resultOutput.appendChild(playerWonText);
-        return 0
-    } else if (result == 1){
-            const playerDrewText = document.createElement('p');
-            playerDrewText.classList.add('playerDrewText')
-            playerDrewText.textContent = "You drew.";
-            resultOutput.appendChild(playerDrewText);
-        return 1
-    } else {
-        playerScore++
-        const playerLostText = document.createElement('p');
-                playerLostText.classList.add('playerLostText')
-                playerLostText.textContent = "You lost.";
-                resultOutput.appendChild(playerLostText);
-        return 2
+        winner = 2
+        console.log(winner)
     }
 }
 
@@ -76,9 +49,25 @@ function changeTextContent(elementById, textContent) {
     elementToChange.textContent = textContent;
 }
     
-function showResult() {
+function showResult(winner) {
+    /* Sets variables for what the resultbox should say */
+    if(winner == 0) {
+        textContentRock = "YOU"
+        textContentPaper = "GOT A"
+        textContentScissors = "POINT"
+    } else if(winner == 1) {
+        textContentRock = "IT"
+        textContentPaper = "WAS A"
+        textContentScissors = "DRAW"
+    } else {
+        textContentRock = "CPU"
+        textContentPaper = "GOT A"
+        textContentScissors = "POINT"
+    }
 
 }
+
+
 
 //Game
     const buttons = document.querySelectorAll('button');
@@ -100,9 +89,7 @@ function showResult() {
         .setProperty('--buttonStartAnimation-animation', 'animateButton 1s forwards, showResult 1.5s forwards')
         document.documentElement.style
         .setProperty('--buttonStartAnimationDelay-animation-delay', '0s, 1.5s, 4s')
-        changeTextContent("rock", "YOU")
-        changeTextContent("paper", "GOT     A")
-        changeTextContent("scissors", "POINT")
+
         
         //Queries the player/comp hand images, then changes class so that the animation begins
         const playerKey = document.querySelector(`.playerAnimation`)
@@ -118,6 +105,12 @@ function showResult() {
         console.log(playerSelection)
         console.log(computerSelection)
         result = playRound(computerSelection, playerSelection)
+        
+        //Checks what the resultbox should say and then changes the text
+        showResult(winner)
+        changeTextContent("rock", textContentRock)
+        changeTextContent("paper", textContentPaper)
+        changeTextContent("scissors", textContentScissors)
 
         //Makes the ending of the animation show the correct image according to button pressed/computer hand
         document.documentElement.style
@@ -156,6 +149,7 @@ function showResult() {
             changeTextContent("scissors", "Scissors")
             document.documentElement.style
             .setProperty('--buttonUnclickable-pointer-events', 'auto')
+            changeTextContent("resultText", `You played ${playerSelection} and the CPU played ${computerSelection}. ${textContentRock} ${textContentPaper} ${textContentScissors}`)
         });
 
         });
