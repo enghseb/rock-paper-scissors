@@ -86,18 +86,21 @@ function changeTextContent(elementById, textContent) {
         document.documentElement.style
         .setProperty('--buttonUnclickable-pointer-events', 'none')
 
-        //Buttons animation start
+        /* Buttons animation gets started, swap color text
+        to turn it invisible while it's also changed to
+        reflect point or not */
         document.documentElement.style
         .setProperty('--buttonColor-color', 'red')
         document.documentElement.style
         .setProperty('--buttonStartAnimation-animation', 'animateButton 1s forwards, showResult 1.5s forwards')
         document.documentElement.style
-        .setProperty('--buttonStartAnimationDelay-animation-delay', '0s, 1s')
+        .setProperty('--buttonStartAnimationDelay-animation-delay', '0s, 1.5s, 4s')
         changeTextContent("rock", "YOU")
         changeTextContent("paper", "GOT     A")
         changeTextContent("scissors", "POINT")
         
-            
+        
+
 
 
         //Queries the player/comp hand images, then changes class so that the animation begins
@@ -136,6 +139,15 @@ function changeTextContent(elementById, textContent) {
             playerKey.classList.add(`playerAnimation`);
             compKey.classList.remove('compPlaying')
             compKey.classList.add(`compAnimation`)
+            document.documentElement.style
+
+            //Turns the result text back into buttons, that are clickable again.
+            .setProperty('--buttonStartAnimation-animation', 'animateButtonBack 1.5s forwards')
+            changeTextContent("rock", "Rock")
+            changeTextContent("paper", "Paper")
+            changeTextContent("scissors", "Scissors")
+            document.documentElement.style
+            .setProperty('--buttonUnclickable-pointer-events', 'auto')
         });
 
         });
