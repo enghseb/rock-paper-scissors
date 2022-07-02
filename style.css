@@ -1,3 +1,5 @@
+/* Variables are needed for us to be able to
+ change them with the help of JS. This one is used in switchHand  */
 :root {
     --start-background-image: url("images/rock.png") ;
     --end-background-image: url("images/scissors.png");
@@ -35,6 +37,15 @@ header { border:1px black solid; }
     }
   }
 
+  .computerAnimation {
+    background-image: url("images/rock_flipped.png");
+    background-position: right;
+    background-repeat: no-repeat; 
+    transform: rotate(-15deg);
+    width: 491px;
+    height: 77px;
+  }
+
   .playerAnimation {
     background-image: url("images/rock.png");
     background-repeat: no-repeat; 
@@ -50,6 +61,18 @@ header { border:1px black solid; }
     height: 77px;
     margin: 0px;
     padding: 0px;
-    animation: bounceAndRotate 1.5s, switchHand 1s forwards;
+    animation: bounceAndRotate 1.5s, switchHand 0.25s forwards;
     animation-delay: 0s, 1.5s;
+  }
+
+  .hands {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  #playerSelection {
+    display: flex;
+    justify-content: center;
+
   }
