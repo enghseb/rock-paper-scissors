@@ -1,0 +1,55 @@
+:root {
+    --start-background-image: url("images/rock.png") ;
+    --end-background-image: url("images/scissors.png");
+}
+
+header { border:1px black solid; }
+
+@keyframes bounceAndRotate {
+    0% {
+      transform:rotate(15deg);
+    }
+    20% {
+       transform:rotate(0deg);
+    }
+    40% {
+        transform: rotate(15deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    80% {
+        transform: rotate(15deg);
+      }
+    100% {
+        transform: rotate(0deg);
+      }
+  }
+
+  @keyframes switchHand {
+    0% {
+        background-image: var(--rock-background-image);
+    }
+    100% {
+        background-image: var(--end-background-image);
+    }
+  }
+
+  .playerAnimation {
+    background-image: url("images/rock.png");
+    background-repeat: no-repeat; 
+    transform:rotate(15deg); 
+    width: 491px;
+    height: 77px;
+  }
+  
+  .playing {
+    background-image: url("images/rock.png");
+    background-repeat: no-repeat; 
+    width: 491px;
+    height: 77px;
+    margin: 0px;
+    padding: 0px;
+    animation: bounceAndRotate 1.5s, switchHand 1s forwards;
+    animation-delay: 0s, 1.5s;
+  }

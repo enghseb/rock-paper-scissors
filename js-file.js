@@ -1,11 +1,28 @@
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
 
-button.addEventListener('click', () => {
+    //Listens for button click
+    button.addEventListener('click', () => {
     playerSelection = button.id
+
+    //Adds a class to playerAnimation that starts it
+    const key = document.querySelector(`.playerAnimation`)
+
+/*     //Changes the ending background image to button.id that was retrieved
+    document.documentElement.style
+    .setProperty('--end-background-image', `url(images/${button.id}.png)`); */
+
+    /* Had to remove instead of using "playerAnimation playing",
+    that ended up forcing the animation back to "playing"
+    state after animation was done */
+    key.classList.remove('playerAnimation')
+    key.classList.add(`playing`)
+
+    console.log(key)
     game()
 });
 });
+
 
 const resultOutput = document.querySelector('#result')
 
