@@ -8,9 +8,9 @@ buttons.forEach((button) => {
     //Adds a class to playerAnimation that starts it
     const key = document.querySelector(`.playerAnimation`)
 
-/*     //Changes the ending background image to button.id that was retrieved
+    //Changes the ending background image to button.id that was retrieved
     document.documentElement.style
-    .setProperty('--end-background-image', `url(images/${button.id}.png)`); */
+    .setProperty('--end-background-image', `url(images/${button.id}.png)`);
 
     /* Had to remove instead of using "playerAnimation playing",
     that ended up forcing the animation back to "playing"
