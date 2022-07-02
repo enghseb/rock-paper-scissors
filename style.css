@@ -28,7 +28,7 @@ header { border:1px black solid; }
 
   @keyframes switchHand {
     0% {
-        background-image: var(--rock-background-image);
+        background-image: var(--start-background-image);
     }
     100% {
         background-image: var(--end-background-image);
@@ -38,7 +38,7 @@ header { border:1px black solid; }
   .playerAnimation {
     background-image: url("images/rock.png");
     background-repeat: no-repeat; 
-    transform:rotate(15deg); 
+    transform: rotate(15deg); 
     width: 491px;
     height: 77px;
   }
