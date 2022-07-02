@@ -14,6 +14,7 @@ buttons.forEach((button) => {
     .setProperty('--end-background-image', `url(images/${button.id}.png)`);
 
 
+
     /* Had to remove instead of using "playerAnimation playing",
     that ended up forcing the animation back to "playing"
     state after animation was done */
@@ -62,6 +63,11 @@ function playRound(computerPlay, userPlay){
     }   else {
         result = 2
     }
+
+    // Makes the background image become the correct hand for computer, after animation has ended
+    document.documentElement.style
+    .setProperty('--compEnd-background-image', `url(images/${computerSelection}_flipped.png)`);
+
     const BothChoicesText = document.createElement('p');
     BothChoicesText.classList.add('BothChoicesText')
     BothChoicesText.textContent = `You go for a ${userPlay} and the computer opts for ${computerPlay}`;

@@ -3,6 +3,8 @@
 :root {
     --start-background-image: url("images/rock.png") ;
     --end-background-image: url("images/scissors.png");
+    --compStart-background-image: url("images/rock_flipped.png");
+    --compEnd-background-image: url("images/scissors_flipped.png");
 }
 
 header { border:1px black solid; }
@@ -58,6 +60,15 @@ header { border:1px black solid; }
     }
   }
 
+  @keyframes switchHandComp {
+    0% {
+        background-image: var(--compStart-background-image);
+    }
+    100% {
+        background-image: var(--compEnd-background-image);
+    }
+  }
+
   .compAnimation {
     background-image: url("images/rock_flipped.png");
     background-position: right;
@@ -91,8 +102,8 @@ header { border:1px black solid; }
     background-position: right;
     width: 491px;
     height: 77px;
-    animation: bounceAndRotateComp 1.5s forwards;
-    /* animation-delay: 0s, 1.5s; */
+    animation: bounceAndRotateComp 1.5s, switchHandComp 0.25s forwards;
+    animation-delay: 0s, 1.5s;
   }
 
   .hands {
@@ -104,5 +115,5 @@ header { border:1px black solid; }
   #playerSelection {
     display: flex;
     justify-content: center;
-
+    margin: 50px;
   }
