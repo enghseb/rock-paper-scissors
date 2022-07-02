@@ -5,7 +5,13 @@
     --end-background-image: url("images/scissors.png");
     --compStart-background-image: url("images/rock_flipped.png");
     --compEnd-background-image: url("images/scissors_flipped.png");
+    --buttonUnclickable-pointer-events: auto;
+    --buttonStartAnimation-animation: none;
+    --buttonStartAnimationDelay-animation-delay: none;
+    --buttonColor-color: black;
 }
+
+/* animateButton 1s forwards */
 
 @font-face {
     font-family: 'Badaboom';
@@ -23,7 +29,6 @@
 body {
     background-color: #ffff00;
 }
-
 
 .scoreboard {
     font-family: Badaboom, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -168,4 +173,41 @@ h1 {
     display: flex;
     justify-content: center;
     margin: 50px;
+  }
+
+  button {
+    font-family: Badaboom, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    color: var(--buttonColor-color);
+    border-radius: 25px;
+    background-color: red;
+    border: none;
+    width: 150px;
+    margin-left: 10px;
+    height: 80px;
+    pointer-events: var(--buttonUnclickable-pointer-events);
+    animation: var(--buttonStartAnimation-animation);
+    animation-delay: var(--buttonStartAnimationDelay-animation-delay);
+  }
+
+  @keyframes animateButton {
+    0% {
+        
+    }
+    100% {
+        background-color: red;
+        margin-left: 0px;
+        width: 160px;
+        border-radius: 0px;
+        
+    }
+  }
+
+  @keyframes showResult {
+    0% {
+        color: red;
+    }
+    100% {
+        color: white;
+    }
   }

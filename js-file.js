@@ -69,12 +69,36 @@ console.log(rounds)
 /* console.log(playerSelection) */
 }
 
+function changeTextContent(elementById, textContent) {
+    const elementToChange = document.getElementById(elementById);
+    elementToChange.textContent = textContent;
+}
+    
+
 //Game
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
 
     //Listens for button click
     button.addEventListener('click', () => {
+        
+        //Buttons become unclickable
+        document.documentElement.style
+        .setProperty('--buttonUnclickable-pointer-events', 'none')
+
+        //Buttons animation start
+        document.documentElement.style
+        .setProperty('--buttonColor-color', 'red')
+        document.documentElement.style
+        .setProperty('--buttonStartAnimation-animation', 'animateButton 1s forwards, showResult 1.5s forwards')
+        document.documentElement.style
+        .setProperty('--buttonStartAnimationDelay-animation-delay', '0s, 1s')
+        changeTextContent("rock", "YOU")
+        changeTextContent("paper", "GOT     A")
+        changeTextContent("scissors", "POINT")
+        
+            
+
 
         //Queries the player/comp hand images, then changes class so that the animation begins
         const playerKey = document.querySelector(`.playerAnimation`)
