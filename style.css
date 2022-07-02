@@ -7,7 +7,57 @@
     --compEnd-background-image: url("images/scissors_flipped.png");
 }
 
-header { border:1px black solid; }
+@font-face {
+    font-family: 'Badaboom';
+    src: url('images/badaboom_font/badabb__-webfont.woff2') format('woff2'),
+         url('images/badaboom_font/badabb__-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* * {
+    border: solid red 1px;
+} */
+
+body {
+    background-color: #ffff00;
+}
+
+
+.scoreboard {
+    font-family: Badaboom, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 60px;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    background: rgb(255,255,0);
+    background: linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 60%, rgba(255,255,0,1) 100%);
+}
+
+.scoreboard.score {
+    gap: 150px;
+    color: red;
+    margin-top: 0px;
+}
+
+h1 {
+    font-family: Badaboom, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 80px;
+    text-align: center;
+    color: #000000;
+} 
+
+.header {
+    height: 130px;
+    margin-bottom: 50px;
+}
+
+#v {
+    font-size: 30px;
+}
 
 @keyframes bounceAndRotate {
     0% {
@@ -110,6 +160,8 @@ header { border:1px black solid; }
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
+    margin-top: 100px;
+    gap: 30px;
   }
 
   #playerSelection {

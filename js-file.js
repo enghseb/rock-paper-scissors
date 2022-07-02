@@ -100,6 +100,13 @@ console.log(rounds)
             console.log(animated)
             //Delay has to be used, otherwise the animation gets cut off and we can't see the result
             delay(1500).then(() => {
+            
+            //Updates the score number in DOM
+            const playerScoreElement = document.getElementById('score-player');
+            playerScoreElement.textContent = `${playerScore}`;
+            const computerScoreElement = document.getElementById('score-computer');
+            computerScoreElement.textContent = `${computerScore}`;
+
             //Resets the start position of divs making, putting the hands back to start position
             playerKey.classList.remove('playing')
             playerKey.classList.add(`playerAnimation`);
