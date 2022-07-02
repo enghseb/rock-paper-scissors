@@ -211,3 +211,18 @@ h1 {
         color: white;
     }
   }
+
+  @keyframes animateButtonBack {
+    0% {
+      background-color: red;
+      margin-left: 0px;
+      width: 160px;
+      border-radius: 0px;
+    }
+    100% {
+    width: 150px;
+    margin-left: 10px;
+    border-radius: 25px;
+    color: black;
+  }
+}

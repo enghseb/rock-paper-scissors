@@ -30,12 +30,16 @@ function playRound(computerPlay, playerSelection){
     /* Plays out the winner of the round and returns the score*/
     rounds++
     if (playerSelection == "rock" && computerPlay == "scissors" || playerSelection == "scissors" && computerPlay == "paper" || playerSelection == "paper" && computerPlay == "rock") {
-        console.log("Test")
-        return 0
+        console.log("Spelare vann")
+        playerScore++
+        /* return 0 */
     }   else if (playerSelection == "rock" && computerPlay == "rock" || playerSelection == "scissors" && computerPlay == "scissors" || playerSelection == "paper" && computerPlay == "paper") {
-        return 1
+        console.log("Oavgjort")
+        /* return 1 */
     }   else {
-        return 2
+        computerScore++
+        console.log("Dator vann")
+        /* return 2 */
     }
 }
 
@@ -45,28 +49,26 @@ function score(result){
     const resultOutput = document.querySelector('#result')
 
     if(result == 0) {
-        playerScore++
-        const   playerWonText = document.createElement('p');
-        playerWonText.classList.add('playerWonText')
-        playerWonText.textContent = "You won and scored a point.";
-        resultOutput.appendChild(playerWonText);
-    } else if (result == 1){
-        const playerDrewText = document.createElement('p');
-        playerDrewText.classList.add('playerDrewText')
-        playerDrewText.textContent = "You drew.";
-        resultOutput.appendChild(playerDrewText);
-    } else {
         computerScore++
+        const playerWonText = document.createElement('p');
+                playerWonText.classList.add('playerWonText')
+                playerWonText.textContent = `You won, the computer had a ${computerSelection}`;
+                resultOutput.appendChild(playerWonText);
+        return 0
+    } else if (result == 1){
+            const playerDrewText = document.createElement('p');
+            playerDrewText.classList.add('playerDrewText')
+            playerDrewText.textContent = "You drew.";
+            resultOutput.appendChild(playerDrewText);
+        return 1
+    } else {
+        playerScore++
         const playerLostText = document.createElement('p');
-        playerLostText.classList.add('playerLostText')
-        playerLostText.textContent = "You lost.";
-        resultOutput.appendChild(playerLostText);
+                playerLostText.classList.add('playerLostText')
+                playerLostText.textContent = "You lost.";
+                resultOutput.appendChild(playerLostText);
+        return 2
     }
-
-console.log(playerScore)
-console.log(computerScore)
-console.log(rounds)
-/* console.log(playerSelection) */
 }
 
 function changeTextContent(elementById, textContent) {
@@ -74,6 +76,9 @@ function changeTextContent(elementById, textContent) {
     elementToChange.textContent = textContent;
 }
     
+function showResult() {
+
+}
 
 //Game
     const buttons = document.querySelectorAll('button');
@@ -99,10 +104,6 @@ function changeTextContent(elementById, textContent) {
         changeTextContent("paper", "GOT     A")
         changeTextContent("scissors", "POINT")
         
-        
-
-
-
         //Queries the player/comp hand images, then changes class so that the animation begins
         const playerKey = document.querySelector(`.playerAnimation`)
         const compKey = document.querySelector('.compAnimation')
@@ -110,16 +111,23 @@ function changeTextContent(elementById, textContent) {
         playerKey.classList.add(`playing`)
         compKey.classList.remove('compAnimation')
         compKey.classList.add(`compPlaying`)
+        
+        //Plays a round with the players selection, and the outcome of the function computer play
+        playerSelection = button.id
+        computerSelection = computerPlay()
+        console.log(playerSelection)
+        console.log(computerSelection)
+        result = playRound(computerSelection, playerSelection)
 
         //Makes the ending of the animation show the correct image according to button pressed/computer hand
         document.documentElement.style
         .setProperty('--end-background-image', `url(images/${button.id}.png)`);
-        
-        //Plays a round with the players selection, and the outcome of the function computer play
-        playerSelection = button.id
-        result = playRound(computerPlay(), playerSelection)
-        //Runs the result through the score function
-        score(result)
+        document.documentElement.style
+        .setProperty('--compEnd-background-image', `url(images/${computerSelection}_flipped.png)`);
+
+        //Runs the result through the score function, also gets it as var so we can run it through the showResult function
+        /* winner = score(result) */
+        console.log("test")
 
         //Makes sure we can play more than one round
         const animated = document.querySelector('.playing');
