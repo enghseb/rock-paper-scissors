@@ -6,19 +6,24 @@ buttons.forEach((button) => {
     playerSelection = button.id
 
     //Adds a class to playerAnimation that starts it
-    const key = document.querySelector(`.playerAnimation`)
+    const playerKey = document.querySelector(`.playerAnimation`)
+    const compKey = document.querySelector('.compAnimation')
 
-    //Changes the ending background image to button.id that was retrieved
+    //Changes the ending background image for player to button.id that was retrieved
     document.documentElement.style
     .setProperty('--end-background-image', `url(images/${button.id}.png)`);
+
 
     /* Had to remove instead of using "playerAnimation playing",
     that ended up forcing the animation back to "playing"
     state after animation was done */
-    key.classList.remove('playerAnimation')
-    key.classList.add(`playing`)
+    playerKey.classList.remove('playerAnimation')
+    playerKey.classList.add(`playing`)
+    compKey.classList.remove('compAnimation')
+    compKey.classList.add(`compPlaying`)
 
-    console.log(key)
+
+    console.log(playerKey)
     game()
 });
 });
@@ -71,7 +76,7 @@ function game(){
     let playerScore = 0
     let computerScore = 0
     /* if(playerSelection != "") { */
-        for (let rounds = 0; rounds < 5; rounds++) {
+        for (let rounds = 0; rounds < 1; rounds++) {
             roundResult = playRound(computerPlay(), userPlay())
 
             if (roundResult == 0){

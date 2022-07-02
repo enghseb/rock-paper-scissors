@@ -28,6 +28,27 @@ header { border:1px black solid; }
       }
   }
 
+  @keyframes bounceAndRotateComp {
+    0% {
+      transform:rotate(-15deg);
+    }
+    20% {
+       transform:rotate(0deg);
+    }
+    40% {
+        transform: rotate(-15deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    80% {
+        transform: rotate(-15deg);
+      }
+    100% {
+        transform: rotate(0deg);
+      }
+  }
+
   @keyframes switchHand {
     0% {
         background-image: var(--start-background-image);
@@ -37,7 +58,7 @@ header { border:1px black solid; }
     }
   }
 
-  .computerAnimation {
+  .compAnimation {
     background-image: url("images/rock_flipped.png");
     background-position: right;
     background-repeat: no-repeat; 
@@ -54,15 +75,24 @@ header { border:1px black solid; }
     height: 77px;
   }
   
+/*   User playing need to rename */
   .playing {
     background-image: url("images/rock.png");
     background-repeat: no-repeat; 
     width: 491px;
     height: 77px;
-    margin: 0px;
-    padding: 0px;
     animation: bounceAndRotate 1.5s, switchHand 0.25s forwards;
     animation-delay: 0s, 1.5s;
+  }
+
+  .compPlaying {
+    background-image: url("images/rock_flipped.png");
+    background-repeat: no-repeat; 
+    background-position: right;
+    width: 491px;
+    height: 77px;
+    animation: bounceAndRotateComp 1.5s forwards;
+    /* animation-delay: 0s, 1.5s; */
   }
 
   .hands {
