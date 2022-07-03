@@ -143,6 +143,5 @@ function setResultBoxText(setting) {
             changeTextContent("resultText", `You played ${playerSelection} and the CPU played ${computerSelection}. ${textContentRock} ${textContentPaper} ${textContentScissors}`)
         });
         });
-    
 });
 });
